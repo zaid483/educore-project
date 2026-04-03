@@ -1,6 +1,5 @@
 import Bleed from "./Components/Bleed/Bleed";
 import UILandingPage from "./Components/Community/Community";
-import Community from "./Components/Community/Community";
 import Course from "./Components/Course/Course";
 import Educore from "./Components/Educore/Educore";
 import LandingSection from "./Components/Enroll/LandingSection";
