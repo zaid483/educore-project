@@ -9,22 +9,30 @@ export default function Instructor() {
   const { title, name, bio, image, stats } = Meetdata;
 
   return (
-    <div className="bg-black text-white py-16">
-      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 items-center">
+    <div className="bg-black text-white py-12 md:py-16" id="instructor">
+      <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 items-start px-4 sm:px-6">
+        {/* Instructor Image */}
         <img
           src={image}
           alt={name}
-          className="w-[520px] rounded-2xl object-cover"
+          className="w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl rounded-2xl object-cover"
+          loading="lazy"
         />
 
-        <div className="p-3">
-          <h2 className="text-5xl font-semibold mb-4">{title}</h2>
-          <p className="text-gray-300 font-semibold text-md leading-relaxed mb-6 whitespace-pre-line">
+        {/* Content */}
+        <div className="flex-1 flex flex-col gap-6 md:gap-8 p-2 md:p-4">
+          {/* Title */}
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold">
+            {title}
+          </h2>
+
+          {/* Bio */}
+          <p className="text-gray-300 font-medium text-sm sm:text-base md:text-md leading-relaxed whitespace-pre-line">
             {bio}
           </p>
 
           {/* Stats */}
-          <div className="space-y-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {stats.map((item, index) => (
               <div key={index} className="flex items-center gap-2">
                 <Star size={16} className="text-purple-500" />
@@ -33,15 +41,21 @@ export default function Instructor() {
               </div>
             ))}
           </div>
-          {/*  */}
-          <div className="overflow-hidden w-full  max-w-6xl mx-auto">
-            <h1 className="text-gray-500 font-semibold mb-4 ">
+
+          {/* Brands */}
+          <div className="overflow-hidden w-full mt-6">
+            <h3 className="text-gray-500 font-semibold mb-3 text-sm sm:text-base">
               BRANDS EDUCATED
-            </h1>
-            <div className="flex animate-marquee">
-              {[...logos, ...logos].map((log) => {
-                return <img src={log} alt="" className="h-8 px-6" />;
-              })}
+            </h3>
+            <div className="flex animate-marquee gap-4 md:gap-6">
+              {[...logos, ...logos].map((log, i) => (
+                <img
+                  key={i}
+                  src={log}
+                  alt={`brand-${i}`}
+                  className="h-6 sm:h-8 md:h-10"
+                />
+              ))}
             </div>
           </div>
         </div>

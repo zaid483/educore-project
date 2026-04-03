@@ -5,7 +5,7 @@ import { img7 } from "../../assets/image";
 
 export default function Course() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-6xl  mx-auto px-4 py-10" id="overview">
       <div className="flex flex-col lg:flex-row items-center justify-center ">
         <div className="w-full lg:w-1/2">
           <p className="font-semibold text-2xl sm:text-3xl lg:text-4xl text-black mb-10">

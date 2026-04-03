@@ -1,44 +1,52 @@
 import React, { useState } from "react";
-import { Plus } from "lucide-react";
+import { Plus, User, Mail, MessageSquare } from "lucide-react";
 import { Moduledata } from "./Moduledata";
-import { img10 } from "../../assets/image";
 
 export default function CourseOverview() {
   const [active, setActive] = useState(null);
 
   return (
-    <div className="min-h-screen bg-black text-white px-5 mt-10">
-      <div className="text-center mb-12 mt-5">
-        <button className="mt-10 px-4 py-2 rounded-full mb-5 text-white bg-[#6241eb] whitespace-nowrap">
-          Why Educore?
+    <div className="bg-black text-white py-16 px-5 md:px-10" id="curriculum">
+      {/* HEADER */}
+      <div className="text-center mb-16">
+        <button className="px-5 py-2 mb-5 rounded-full text-white bg-[#6241eb] font-medium transition hover:opacity-90">
+          Curriculum
         </button>
-        <h1 className="font-bold text-4xl">Why you should choose us</h1>
+        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl">
+          What you’ll learn in this course
+        </h1>
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-7xl mx-auto w-full flex flex-col lg:flex-row gap-10 justify-center">
-        <div className="w-full lg:w-2/4">
-          <h2 className="text-3xl font-semibold mb-6">
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-16 justify-center">
+        {/* LEFT: Accordion */}
+        <div className="w-full lg:w-2/3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-8">
             What you’ll learn in this course
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {Moduledata.map((item, index) => (
-              <div key={index} className="border border-white/10 rounded-lg">
+              <div
+                key={index}
+                className="border border-white/10 rounded-xl overflow-hidden"
+              >
                 <button
                   onClick={() => setActive(active === index ? null : index)}
-                  className="w-full flex justify-between items-center px-5 py-4 text-left"
+                  className="w-full flex justify-between items-center px-6 py-4 text-left text-white hover:bg-white/5 transition"
                 >
-                  <span className="font-medium">{item.title}</span>
+                  <span className="font-medium text-lg sm:text-base md:text-lg">
+                    {item.title}
+                  </span>
                   <Plus
-                    className={`transition ${
+                    className={`transition-transform duration-300 ${
                       active === index ? "rotate-45" : ""
                     }`}
                   />
                 </button>
 
                 {active === index && (
-                  <div className="px-5 pb-4 text-sm text-gray-400">
+                  <div className="px-6 pb-4 text-gray-400 text-sm sm:text-base">
                     {item.lessons}
                   </div>
                 )}
@@ -47,37 +55,69 @@ export default function CourseOverview() {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/3 flex justify-center">
-          <div className="bg-indigo-600 rounded-xl p-6 w-full ">
-            <p className="text-xl font-bold opacity-80 mb-1">Course</p>
-            <h3 className="text-5xl font-bold mb-2">$99</h3>
-            <h4 className="text-sm font-bold opacity-80 mb-4">
-              2 days left at this price
-            </h4>
+        {/* RIGHT: Pricing + Form Card */}
+        <div className="w-full lg:w-1/3 flex flex-col gap-10">
+          {/* Pricing Card */}
 
-            <div className="bg-gray-300 text-black rounded-lg p-4 mb-4">
-              <h4 className="font-semibold mb-1">
-                Design Mastery: The Ultimate UX/UI
-              </h4>
-              <p className="text-sm text-gray-800">
-                Learn UX/UI design from scratch with real-world projects.
-              </p>
-            </div>
+          {/* Advanced Form Card */}
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 sm:p-8 w-full max-w-sm shadow-lg hover:shadow-xl transition-shadow">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-6 text-white text-center">
+              Contact Us
+            </h2>
+            <form className="space-y-5">
+              {/* Name */}
+              <div className="relative">
+                <User
+                  className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
+                <input
+                  type="text"
+                  placeholder=" "
+                  className="peer w-full rounded-lg border border-gray-600 bg-white/20 text-white pl-10 pt-6 pb-2 placeholder-transparent focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:outline-none transition"
+                />
+                <label className="absolute left-10 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-500">
+                  Full Name
+                </label>
+              </div>
 
-            <ul className="text-sm space-y-3 mb-6">
-              <li>✔ Lifetime access</li>
-              <li>✔ Downloadable resources</li>
-              <li>✔ Certificate of completion</li>
-              <li>✔ Certificate of completion</li>
-            </ul>
+              {/* Email */}
+              <div className="relative">
+                <Mail
+                  className="absolute top-1/2 left-3 -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
+                <input
+                  type="email"
+                  placeholder=" "
+                  className="peer w-full rounded-lg border border-gray-600 bg-white/20 text-white pl-10 pt-6 pb-2 placeholder-transparent focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:outline-none transition"
+                />
+                <label className="absolute left-10 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-500">
+                  Email Address
+                </label>
+              </div>
 
-            <button className="w-full bg-black text-white py-3 rounded-lg font-medium hover:opacity-90">
-              Enroll Now
-            </button>
+              {/* Message */}
+              <div className="relative">
+                <MessageSquare
+                  className="absolute top-3 left-3 text-gray-400"
+                  size={20}
+                />
+                <textarea
+                  rows="4"
+                  placeholder=" "
+                  className="peer w-full rounded-lg border border-gray-600 bg-white/20 text-white pl-10 pt-6 pb-2 placeholder-transparent focus:border-purple-500 focus:ring-1 focus:ring-purple-500 focus:outline-none transition resize-none"
+                ></textarea>
+                <label className="absolute left-10 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 peer-focus:top-2 peer-focus:text-sm peer-focus:text-purple-500">
+                  Your Message
+                </label>
+              </div>
+
+              <button className="w-full bg-purple-600 hover:bg-purple-700 active:bg-purple-800 transition text-white font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl">
+                Send Message
+              </button>
+            </form>
           </div>
-          {/*  */}
-
-          {/*  */}
         </div>
       </div>
     </div>

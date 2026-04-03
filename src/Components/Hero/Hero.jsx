@@ -23,27 +23,27 @@ const testimonials = [
 
 export default function HeroPage() {
   return (
-    <div className="bg-black w-full py-20 ">
+    <div className="mt-10 bg-black w-full pb-10 md:pb-16 lg:pb-20" id="home">
       <div className="max-w-7xl mx-auto px-4 md:px-10 lg:px-20">
-        <div className="lg:flex lg:items-start lg:justify-between lg:gap-10">
+        <div className="lg:flex lg:items-start lg:justify-between lg:gap-10 flex-col lg:flex-row">
           {/* Hero Text */}
-          <div className="mb-10 lg:mb-0 lg:w-1/2">
-            <div className="inline-flex items-center gap-2 bg-[#2b2b2b] px-2 py-1 rounded-full mb-4">
+          <div className="mb-10 lg:mb-0 lg:w-1/2 text-center lg:text-left">
+            <div className="inline-flex items-center gap-2 bg-[#2b2b2b] px-2 py-1 rounded-full mb-4 justify-center lg:justify-start">
               <button className="bg-[#cfd8ff] px-3 py-1 rounded-full text-sm font-medium">
                 New
               </button>
               <p className="text-white text-sm">Registrations are now open!</p>
             </div>
 
-            <h1 className="text-4xl md:text-6xl font-bold mb-4 text-white leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-4 text-white leading-tight">
               Master UI Design <br /> From Scratch
             </h1>
 
-            <p className="font-semibold text-lg text-gray-200 mb-10">
+            <p className="font-semibold text-base md:text-lg text-gray-200 mb-6 md:mb-10">
               The only design course you need to be among top 1% designers.
             </p>
 
-            <div className="flex flex-wrap gap-3 mb-10">
+            <div className="flex flex-wrap gap-3 mb-6 md:mb-10 justify-center lg:justify-start">
               <button className="px-4 py-2 rounded-md text-white bg-[#6241eb]">
                 Enroll Now
               </button>
@@ -52,21 +52,21 @@ export default function HeroPage() {
               </button>
             </div>
 
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
               <p className="text-white flex gap-1 items-center">
-                <Video size={24} color="white" /> ONLINE
+                <Video size={20} /> ONLINE
               </p>
               <p className="text-white flex gap-1 items-center">
-                <CheckCheck size={24} color="white" /> HANDS-ON
+                <CheckCheck size={20} /> HANDS-ON
               </p>
               <p className="text-white flex gap-1 items-center">
-                <ShieldCheck size={24} color="white" /> CERTIFICATE
+                <ShieldCheck size={20} /> CERTIFICATE
               </p>
             </div>
           </div>
 
           {/* Slider */}
-          <div className="lg:w-1/2">
+          <div className="lg:w-1/2 mt-6 lg:mt-0">
             <Splide
               options={{
                 type: "loop",
@@ -74,7 +74,7 @@ export default function HeroPage() {
                 focus: "center",
                 gap: "1rem",
                 autoplay: true,
-                interval: 1000,
+                interval: 2000,
                 pauseOnHover: true,
                 arrows: false,
                 pagination: false,
@@ -87,7 +87,7 @@ export default function HeroPage() {
             >
               {testimonials.map((item, index) => (
                 <SplideSlide key={index}>
-                  <div className="relative rounded-2xl overflow-hidden h-[420px]">
+                  <div className="relative rounded-2xl overflow-hidden w-full h-[250px] sm:h-[300px] md:h-[420px]">
                     <img
                       src={item.img}
                       alt={item.name}

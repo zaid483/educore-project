@@ -1,69 +1,80 @@
 import React from "react";
-import { img2, img3, img4, img5, img6 } from "../../assets/image";
 import { Reviewsdata } from "./Reviewsdata";
+import { img2, img3, img4, img5, img6 } from "../../assets/image";
 
 const logos = [img2, img3, img4, img5, img6];
 
 export default function Reviews() {
   return (
-    <div className="mx-w-7xl mx-auto">
-      <div className="text-center mb-12 mt-5 w-full sm:w-full lg:w-1/2 mx-auto">
-        <button className="mt-10 px-4 py-2 rounded-full mb-5 text-white bg-[#6241eb] whitespace-nowrap">
-          Why Educore?
-        </button>
-        <h1 className="font-bold text-4xl mb-5">
-          Our Alumni work at companies like Google, Nike, and Duolingo
-        </h1>
-        <p className="font-semibold text-gray-700">
-          Our alumni of students means everything to us and we're grateful to
-          have placed designers in Nasa, Google, Revolut and more amazing teams
-          around the world
+    <div className="bg-gray-100 py-20 px-4" id="testimonials">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Badge */}
+        <div className="inline-block bg-purple-100 text-purple-600 px-4 py-1 rounded-full text-sm mb-4">
+          Reviews
+        </div>
+
+        {/* Title */}
+        <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+          Our Alumni work at companies <br />
+          like Google, Nike, and Duolingo
+        </h2>
+
+        {/* Description */}
+        <p className="text-gray-500 max-w-xl mx-auto mb-6">
+          Our alumni of students means everything to us and we’re grateful to
+          have placed designers in top companies around the world.
         </p>
-        <div className="flex flex-wrap items-center justify-center mt-10 gap-3 mb-10">
-          <button className="px-4 py-2 rounded-md text-white bg-[#6241eb]">
+
+        {/* Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
+          <button className="bg-[#6241eb] text-white px-6 py-3 rounded-xl shadow  transition">
             Enroll Now
           </button>
-          <button className="px-4 py-2 rounded-md text-black bg-white">
+          <button className="bg-white px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition">
             See Curriculum
           </button>
         </div>
-      </div>
-      {/*  */}
-      <div className="overflow-hidden w-full max-w-6xl mx-auto bg-white ">
-        <div className="flex animate-marquee">
-          {[...logos, ...logos].map((logo, i) => (
+
+        <div className="flex animate-marquee gap-4 md:gap-10 ">
+          {[...logos, ...logos, ...logos].map((log, i) => (
             <img
               key={i}
-              src={logo}
-              alt=""
-              className="h-8 px-8 object-contain flex-shrink-0 filter grayscale brightness-0"
+              src={log}
+              alt={`brand-${i}`}
+              className="h-6 sm:h-8 md:h-10 mb-10 mt-5 filter brightness-0 opacity-90 hover:opacity-100 transition "
             />
           ))}
         </div>
-      </div>
-      {/* bleed layout ended */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-wrap gap-3 items-center justify-center mt-10">
-          {Reviewsdata.map((Rev, index) => {
-            return (
-              <div
-                key={index}
-                className="w-full sm:w-[42%] lg:w-[30%] shadow-xl p-10 rounded-md flex flex-col"
-              >
-                <img src={Rev.img} alt="" width={120} className="mb-3" />
 
-                <p className="text-gray-700 font-semibold mb-5">{Rev.para}</p>
+        {/* Reviews Grid */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {Reviewsdata.map((item, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-2xl shadow p-6 text-left hover:shadow-lg transition"
+            >
+              {/* Stars */}
+              <div className="text-yellow-400 mb-3 text-sm">★★★★★</div>
 
-                <div className="flex items-center gap-3 mt-auto">
-                  <img src={Rev.img2} alt="" />
-                  <div>
-                    <h4 className="font-semibold">{Rev.name}</h4>
-                    <p className="text-gray-700">{Rev.career}</p>
-                  </div>
+              {/* Text */}
+              <p className="text-gray-600 text-sm mb-5 leading-relaxed">
+                {item.para}
+              </p>
+
+              {/* User */}
+              <div className="flex items-center gap-3">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                <div>
+                  <p className="font-medium text-sm">{item.name}</p>
+                  <p className="text-gray-400 text-xs">{item.career}</p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </div>
