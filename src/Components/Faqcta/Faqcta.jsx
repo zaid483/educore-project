@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function FAQCTA() {
+export default function Faqcta() {
   const avatars = [
     "https://randomuser.me/api/portraits/men/32.jpg",
     "https://randomuser.me/api/portraits/women/44.jpg",

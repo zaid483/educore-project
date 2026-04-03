@@ -3,7 +3,7 @@ import UILandingPage from "./Components/Community/Community";
 import Course from "./Components/Course/Course";
 import Educore from "./Components/Educore/Educore";
 import LandingSection from "./Components/Enroll/LandingSection";
-import FAQCTA from "./Components/Faqcta/FAQCTA";
+import Faqcta from "./Components/Faqcta/Faqcta.jsx";
 import FAQSection from "./Components/FAQSection/FAQSection";
 import Footer from "./Components/Footer/Footer";
 import HeroPage from "./Components/Hero/Hero";
@@ -28,7 +28,7 @@ export default function App() {
       <LandingSection />
       <UILandingPage />
       <FAQSection />
-      <FAQCTA />
+      <Faqcta />
       <Footer />
     </div>
   );
