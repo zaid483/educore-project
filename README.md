@@ -54,3 +54,5 @@ This project is deployed on **Vercel**. Access the live demo here:
 [**Educore Live**](https://educore-project-5c1g-git-main-zaid483s-projects.vercel.app)
 
 ![Educore Screenshot](./public/educore-image.png)
+
+https://educore-project-5c1g-d803dg0mu-zaid483s-projects.vercel.app/
