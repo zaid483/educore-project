@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Navdata } from "./Navdata";
 import { Menu, X } from "lucide-react";
 import { img1 } from "../../assets/image";
+import { Link } from "react-scroll";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      {/* Spacer to push content below navbar */}
+      {/* Spacer for fixed navbar */}
       <div className="h-[80px] md:h-[90px]"></div>
 
       <div className="fixed top-0 left-0 w-full z-50">
@@ -18,17 +19,25 @@ export default function Nav() {
               <img src={img1} alt="logo" className="h-8 sm:h-10" />
             </a>
 
+            {/* Desktop Menu */}
             <div className="hidden lg:flex items-center gap-5">
               {Navdata.map((data) => (
-                <a
+                <Link
                   key={data.index}
-                  href={`#${data.id}`}
+                  to={data.id}
+                  smooth={true}
+                  duration={500}
+                  offset={-80} // navbar height
                   className="text-black cursor-pointer hover:text-purple-600 transition"
+                  activeClass="text-purple-600 font-semibold"
+                  spy={true}
                 >
                   {data.title}
-                </a>
+                </Link>
               ))}
             </div>
+
+            {/* Hamburger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="lg:hidden transition-transform duration-300"
@@ -36,6 +45,7 @@ export default function Nav() {
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
 
+            {/* Enroll Button */}
             <button className="px-4 py-2 rounded-md text-white bg-[#6241eb] whitespace-nowrap hidden lg:block">
               Enroll Now
             </button>
@@ -51,13 +61,21 @@ export default function Nav() {
           >
             <div className="bg-white shadow-lg rounded-lg px-4 py-4 flex flex-col gap-2">
               {Navdata.map((data, index) => (
-                <div
+                <Link
                   key={index}
+                  to={data.id}
+                  smooth={true}
+                  duration={500}
+                  offset={-80}
                   className="py-2 border-b cursor-pointer transform transition-all duration-200 hover:translate-x-1"
+                  onClick={() => setIsOpen(false)} // close menu after click
+                  activeClass="text-purple-600 font-semibold"
+                  spy={true}
                 >
                   {data.title}
-                </div>
+                </Link>
               ))}
+
               <button className="mt-4 w-full px-4 py-2 rounded-md text-white bg-[#6241eb] hover:opacity-90 transition">
                 Enroll Now
               </button>
