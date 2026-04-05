@@ -33,7 +33,7 @@ export default function Course() {
           </div>
         </div>
 
-        <div className="w-full lg:w-1/2 flex ">
+        <div className="w-full xs:w-11/12 sm:w-9/12 md:w-7/12 lg:w-1/2 flex justify-center mx-auto">
           <img src={img7} alt="" className="w-full rounded-xl" />
         </div>
 
@@ -47,18 +47,18 @@ export default function Course() {
           ))}
         </div>
       </div>
-      <div className="flex justify-center items-center mt-20">
-        <iframe
-          width="1185"
-          height="654"
-          className="rounded-xl "
-          src="https://www.youtube.com/embed/8AHPXm9Y6mI"
-          title="That’s Framer: The pro site builder loved by designers"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen
-        ></iframe>
+      <div className="mt-10 flex justify-center px-4">
+        <div className="w-full sm:w-11/12 md:w-10/12 lg:w-full max-w-6xl rounded-xl overflow-hidden shadow-lg">
+          <iframe
+            className="w-full h-[150px] sm:h-[250px] md:h-[400px] lg:h-[600px] transition-all"
+            src="https://www.youtube.com/embed/8AHPXm9Y6mI"
+            title="That’s Framer: The pro site builder loved by designers"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       </div>
     </div>
   );
